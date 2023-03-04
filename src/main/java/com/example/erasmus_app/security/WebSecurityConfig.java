@@ -2,7 +2,7 @@ package com.example.erasmus_app.security;
 
 import com.example.erasmus_app.security.jwt.AuthEntryPointJwt;
 import com.example.erasmus_app.security.jwt.AuthTokenFilter;
-import com.example.erasmus_app.security.services.UserDetailsServiceImpl;
+import com.example.erasmus_app.services.UserDetailsServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -63,7 +63,8 @@ public class WebSecurityConfig {
         http.authorizeHttpRequests((requests -> requests
                 .requestMatchers("/api/auth/**").permitAll()
                 .requestMatchers("/api/test/**").permitAll()
-                .anyRequest().authenticated()
+                .requestMatchers("/**").permitAll()
+//                .anyRequest().authenticated()
         ));
 
         http.authenticationProvider(authenticationProvider());

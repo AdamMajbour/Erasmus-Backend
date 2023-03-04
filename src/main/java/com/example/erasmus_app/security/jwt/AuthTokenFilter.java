@@ -1,6 +1,6 @@
 package com.example.erasmus_app.security.jwt;
 
-import com.example.erasmus_app.security.services.UserDetailsServiceImpl;
+import com.example.erasmus_app.services.UserDetailsServiceImpl;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;

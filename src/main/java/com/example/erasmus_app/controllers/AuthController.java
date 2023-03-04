@@ -10,7 +10,7 @@ import com.example.erasmus_app.payload.response.MessageResponse;
 import com.example.erasmus_app.repositories.RoleRepository;
 import com.example.erasmus_app.repositories.UserRepository;
 import com.example.erasmus_app.security.jwt.JwtUtils;
-import com.example.erasmus_app.security.services.UserDetailsImpl;
+import com.example.erasmus_app.security.UserDetailsImpl;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -57,16 +57,13 @@ public class AuthController {
         String jwt = jwtUtils.generateJwtToken(authentication);
 
         UserDetailsImpl userDetails = (UserDetailsImpl) authentication.getPrincipal();
-        System.out.println(userDetails.toString());
+
         List<String> roles = userDetails.getAuthorities().stream()
                 .map(GrantedAuthority::getAuthority)
                 .collect(Collectors.toList());
 
-        return ResponseEntity.ok(new JwtResponse(jwt,
-                userDetails.getId(),
-                userDetails.getUsername(),
-                userDetails.getEmail(),
-                roles));
+        return ResponseEntity.ok(new JwtResponse(jwt, userDetails.getId(), userDetails.getName(),
+                userDetails.getLastName(), userDetails.getEmail(), roles));
     }
 
     @PostMapping("/signup")

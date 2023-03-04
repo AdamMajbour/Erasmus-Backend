@@ -1,6 +1,6 @@
 package com.example.erasmus_app.security.jwt;
 
-import com.example.erasmus_app.security.services.UserDetailsImpl;
+import com.example.erasmus_app.security.UserDetailsImpl;
 import io.jsonwebtoken.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

@@ -1,7 +1,8 @@
-package com.example.erasmus_app.security.services;
+package com.example.erasmus_app.services;
 
 import com.example.erasmus_app.models.User;
 import com.example.erasmus_app.repositories.UserRepository;
+import com.example.erasmus_app.security.UserDetailsImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;

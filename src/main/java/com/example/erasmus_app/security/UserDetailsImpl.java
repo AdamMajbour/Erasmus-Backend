@@ -1,4 +1,4 @@
-package com.example.erasmus_app.security.services;
+package com.example.erasmus_app.security;
 
 import com.example.erasmus_app.models.User;
 import com.fasterxml.jackson.annotation.JsonIgnore;
