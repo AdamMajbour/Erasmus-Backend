@@ -1,6 +1,5 @@
 package com.example.erasmus_app.controllers;
 
-import com.example.erasmus_app.models.Review;
 import com.example.erasmus_app.payload.request.ReviewDto;
 import com.example.erasmus_app.services.ReviewService;
 import lombok.extern.slf4j.Slf4j;

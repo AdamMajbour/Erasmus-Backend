@@ -12,7 +12,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.List;
 import java.util.Optional;
@@ -37,14 +36,14 @@ public class CountryService {
                 .description(description)
                 .imageName(file.getOriginalFilename())
                 .imageType(file.getContentType())
-                .image(ImageUtil.compressImage(file.getBytes())).build());
+                .image(ImageUtil.compressImage(file.getBytes()))
+                .imageAddress("http://localhost:8080/country/image/" + countryName).build());
 
         return new CountryUploadResponse("Country added successfully: " + file.getOriginalFilename());
     }
 
     @Transactional
     public List<Country> getAllCountries() {
-
         return countryRepository.findAll();
     }
 
